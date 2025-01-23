@@ -25,21 +25,10 @@ public class RentalWebService {
         return "Bonjour !";
     }
 
-    // @PutMapping(value = "/cars/{plateNumber}")
-    // public void rent(
-    //         @PathVariable("plateNumber") String plateNumber,
-    //         @RequestParam(value="rent", required = true)boolean rent,
-    //         @RequestBody Dates dates)
-    // {
-
-    //     logger.info("PlateNumber:" + plateNumber);
-    //     logger.info("Rent:" + rent);
-    //     logger.info("Dates:" + dates);
-
-    // }
-
-    
-
+    @GetMapping("/cars")
+    public List<Car> get_cars() {
+        return cars;
+    }
 
     @GetMapping(value = "/cars/{plateNumber}")
     public ResponseEntity<Car> get_cars(@PathVariable("plateNumber") String plateNumber) {
