@@ -13,7 +13,7 @@ jobs:
           java-version: '23'
           distribution: 'adopt'
       - name: Build and test
-        working-directory: rentalService
+        working-directory: RentelService
         run: |
           export SHELL=/bin/bash
           ./gradlew build
