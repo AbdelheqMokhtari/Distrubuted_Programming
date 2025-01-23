@@ -43,6 +43,22 @@ public class RentalWebService {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @PostMapping(value = "/cars")
+    public ResponseEntity<String> addCar(@RequestBody Car newCar) {
+        // Check if the car with the same plate number already exists
+        for (Car car : cars) {
+            if (car.getPlateNumber().equals(newCar.getPlateNumber())) {
+                String message = "Car with plate number " + newCar.getPlateNumber() + " already exists.";
+                logger.warn(message);
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+            }
+        }
+
+        // Add the new car to the list
+        cars.add(newCar);
+        logger.info("Car added successfully: " + newCar);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Car added successfully.");
+    }
 
     @PutMapping(value = "/cars/{plateNumber}")
     public ResponseEntity<String> rent(
@@ -82,7 +98,4 @@ public class RentalWebService {
         logger.error(errorMessage);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
     }
-
-
-
-    }
+}
