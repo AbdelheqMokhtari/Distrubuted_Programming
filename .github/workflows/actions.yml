@@ -1,6 +1,6 @@
 name: CI
 on:
-  - pull_request
+  pull_request:
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -12,6 +12,9 @@ jobs:
         with:
           java-version: '23'
           distribution: 'adopt'
+      - name: Grant execution permissions to Gradle wrapper
+        working-directory: RentelService
+        run: chmod +x ./gradlew
       - name: Build and test
         working-directory: RentelService
         run: |
