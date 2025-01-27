@@ -1,6 +1,6 @@
 # Distributed Rental Service System
 
-This is a **simple Distributed System project** for a **Rental Service**, built with **Gradle** and **JDK 17**. The application is designed to manage a list of cars and their rental statuses, offering basic operations via HTTP requests. The project has been containerized with **Docker** to enable easy deployment, with future plans to deploy it using **Kubernetes** and integrate a database for persistent storage.
+This is a **simple Distributed System project** for a **Rental Service**, built with **Gradle** and **JDK 17**. The application is designed to manage a list of cars and their rental statuses, offering basic operations via HTTP requests. The project has been containerized with **Docker** to enable easy deployment, with future plans to deploy it using **Kubernetes** and integrate a **database** for persistent storage.
 
 
 ---
@@ -59,7 +59,7 @@ Follow the steps below to set up and run the project locally:
    Expected Output:
 
     ```bash
-   openjdk 17.0.x 
+   openjdk 17.x.x 
    ```
 
 2. **Gradle**
@@ -207,12 +207,12 @@ The following endpoints are available:
 
 ## GitHub Actions Workflow for CI/CD
 
-This project uses **GitHub Actions** to automate the build and test process whenever a pull request is made. The workflow ensures the code is checked out, JDK 17 is set up, the Gradle wrapper is granted execution permissions, and the project is built and tested successfully. You can find the workflow file at [.github/workflows/action.yml](./.github/workflows/action.yml) for more details.
+This project uses **GitHub Actions** to automate the build and test process whenever a pull request is made. The workflow ensures the code is checked out, JDK 17 is set up, the Gradle wrapper is granted execution permissions, and the project is built and tested successfully. You can find the workflow file at [action.yml](./.github/workflows/action.yml) for more details.
 
 
 ## Docker Integration
 
-This project includes a **Dockerfile** to containerize the application for easy deployment. The Dockerfile is located in the `RentelService` directory. You can view and modify it as needed by checking [RentelService/Dockerfile](./RentelService/Dockerfile).
+This project includes a **Dockerfile** to containerize the application for easy deployment. The Dockerfile is located in the `RentelService` directory. You can view and modify it as needed by checking [Dockerfile](./RentelService/Dockerfile).
 
 
 ## Build and Push Docker Image
