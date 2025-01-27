@@ -1,5 +1,5 @@
-# Use the Java 17 base image (Oracle JDK)
-FROM openjdk:17-oracle
+# Use the Java 23 base image (Oracle JDK)
+FROM openjdk:23-oracle
 
 # Create a volume to store temporary files
 VOLUME /tmp
@@ -12,4 +12,3 @@ ADD ./build/libs/rentalService-0.0.1-SNAPSHOT.jar app.jar
 
 # Set the entry point to run the JAR file
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-
