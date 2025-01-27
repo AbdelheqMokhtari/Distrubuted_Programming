@@ -1,6 +1,6 @@
 # Distributed Rental Service System
 
-This is a **simple Distributed System project** for a **Rental Service**, built with **Gradle** and **JDK 17**. The application is designed to manage a list of cars and their rental statuses, offering basic operations via HTTP requests. The project has been containerized with **Docker** to enable easy deployment, with future plans to deploy it using **Kubernetes** and integrate a database for persistent storage.
+This is a **simple Distributed System project** for a **Rental Service**, built with **Gradle** and **JDK 17**. The application is designed to manage a list of cars and their rental statuses, offering basic operations via HTTP requests. The project has been containerized with **Docker** to enable easy deployment, with future plans to deploy it using **Kubernetes** and integrate a **database** for persistent storage.
 
 
 ---
