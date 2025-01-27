@@ -20,3 +20,9 @@ jobs:
         run: |
           export SHELL=/bin/bash
           ./gradlew build
+      - name: Docker images
+        working-directory: rentelService
+        run: |
+          export SHELL=/bin/bash
+          docker build -t rentalservice .
+          docker images
