@@ -59,7 +59,7 @@ Follow the steps below to set up and run the project locally:
    Expected Output:
 
     ```bash
-   openjdk 17.0.x 
+   openjdk 17.x.x 
    ```
 
 2. **Gradle**
