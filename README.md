@@ -130,16 +130,16 @@ Follow the steps below to set up and run the project locally:
 
 1. **Clone the Repository**
    
-```bash
-git clone git@github.com:AbdelheqMokhtari/Distrubuted_Programming.git
-cd Distrubuted_Programming
-```
+    ```bash
+    git clone git@github.com:AbdelheqMokhtari/Distrubuted_Programming.git
+    cd Distrubuted_Programming
+    ```
 
 2. **Build the Project Run the following Gradle command to build the project:**
    
-```bash
-./gradlew build
-```
+    ```bash
+    ./gradlew build
+    ```
 
 ## Available API Endpoints
 The following endpoints are available:
@@ -207,7 +207,7 @@ The following endpoints are available:
 
 ## GitHub Actions Workflow for CI/CD
 
-This project uses **GitHub Actions** to automate the build and test process whenever a pull request is made. The workflow ensures the code is checked out, JDK 17 is set up, the Gradle wrapper is granted execution permissions, and the project is built and tested successfully. You can find the workflow file at [action.yml](./.github/workflows/action.yml) for more details.
+This project uses **GitHub Actions** to automate the build and test process whenever a pull request is made. The workflow ensures the code is checked out, JDK 17 is set up, the Gradle wrapper is granted execution permissions, and the project is built and tested successfully. You can find the workflow file at [action.yml](./.github/workflows/actions.yml) for more details.
 
 
 ## Docker Integration
@@ -252,6 +252,87 @@ docker login.
 ```
 docker push your-dockerhub-username/rental-service:latest    
 ```
-The Docker image is available on my DockerHub: [https://hub.docker.com/u/abdelheq](https://hub.docker.com/u/abdelheq).
+The Docker image is available on my [DockerHub](https://hub.docker.com/u/abdelheq/rentalservice).
 
 ## Kubernetes Deployment
+
+This guide walks you through deploying a Docker image to a Kubernetes cluster using Minikube and kubectl.
+
+1. **Minikube and kubectl Configuration**
+
+    Start your local Kubernetes cluster:
+   
+    ```
+    minikube start --driver=docker      
+    ```
+
+    Verify cluster status:
+   
+    ```
+    minikube status   
+    ```
+
+2. **Create Deployment**
+   
+    Deploy the Rental Service Application
+
+    ```
+    kubectl create deployment rentalservice --image=abdelheq/rentalservice     
+    ```
+
+    Check the Deployment Status
+   
+    ```
+    kubectl get deployments
+    ```
+
+3. **Scalling the Deployment**
+   
+    Scale to 2 replicas
+
+    ```
+    kubectl scale deployment rentalservice --replicas=2
+    ```
+
+    verify the scalling
+
+    ```
+    kubectl get pods
+    ```
+
+4. **Exposing the Deployment**
+   
+    Expose the Deployment as a Service
+
+    ```
+    kubectl scale deployment rentalservice --replicas=2
+    ```
+
+    Check available service
+
+    ```
+    kubectl get services
+    ```
+
+5. **Getting the Application URL**
+
+    Retrieve the URL of the Application
+
+    ```
+    minikube service rentalservice --url
+    ```
+
+    Example output
+
+    ```
+    http://192.168.49.2:31977
+    ```
+
+    test the API
+
+    ```
+    curl http://192.168.49.2:31977/cars
+    ``` 
+
+
+Your Distributed Rental Service System is now deployed on Kubernetes and accessible via the provided URL
